@@ -7,7 +7,7 @@ interface ListProps<T> {
 
 export default function List<T>(props: ListProps<T>) {
     return (
-        <div style={{display: 'flex', flexWrap: 'wrap', justifyContent: 'center'}}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
             {props.items.map(props.renderItem)}
         </div>
     );

@@ -4,6 +4,7 @@ import axios from 'axios';
 import UserItem from './components/UserItem';
 import List from './components/List';
 import EventsExample from './components/EventsExample';
+import { BrowserRouter } from 'react-router-dom'
 
 const App = () => {
   const [users, setUsers] = useState<IUser[]>([]);
@@ -23,8 +24,8 @@ const App = () => {
 
   return (
     <div>
-      <List items={users} renderItem={(user: IUser) => <UserItem user={user} key={user.id}/>} />
-    
+      <List items={users} renderItem={(user: IUser) => <UserItem user={user} key={user.id} />} />
+
       <hr />
 
       <EventsExample />
