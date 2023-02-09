@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div>
-      <List items={users} renderItem={(user: IUser) => <UserItem user={user} />} />
+      <List items={users} renderItem={(user: IUser) => <UserItem user={user} key={user.id}/>} />
     </div>
   );
 }
