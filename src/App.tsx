@@ -1,35 +1,26 @@
-import { useEffect, useState } from 'react';
-import { IUser } from './types/interfaces';
-import axios from 'axios';
-import UserItem from './components/UserItem';
-import List from './components/List';
-import EventsExample from './components/EventsExample';
-import { BrowserRouter } from 'react-router-dom'
+import { NavLink } from 'react-router-dom';
+import EventsPage from './components/pages/events/EventsPage';
+import UsersPage from './components/pages/users/UsersPage';
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import UserItemPage from './components/pages/users/UserItemPage';
 
 const App = () => {
-  const [users, setUsers] = useState<IUser[]>([]);
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
-
-  async function fetchUsers() {
-    try {
-      const response = await axios.get<IUser[]>('https://jsonplaceholder.typicode.com/users');
-      setUsers(response.data)
-    } catch (e) {
-      alert(e);
-    }
-  }
 
   return (
-    <div>
-      <List items={users} renderItem={(user: IUser) => <UserItem user={user} key={user.id} />} />
-
-      <hr />
-
-      <EventsExample />
-    </div>
+    <BrowserRouter>
+      <div>
+        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'end', gap: 5}}>
+          <NavLink to='/users'>Пользователи</NavLink>
+          <NavLink to='/events'>События</NavLink>
+        </div>
+        <Routes>
+          <Route path={'/'} element={<UsersPage />} />
+          <Route path={'/users'} element={<UsersPage />} />
+          <Route path={'/events'} element={<EventsPage />} />
+          <Route path={'/users/:id'} element={<UserItemPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -1,6 +1,6 @@
 import React, { FC, useRef, useState } from 'react'
 
-const EventsExample: FC = () => {
+const EventsPage: FC = () => {
     const [value, setValue] = useState<string>('');
     const [isDraggedOver, setIsDraggedOver] = useState<boolean>(false);
     const inputRef = useRef<HTMLInputElement>(null);
@@ -50,4 +50,4 @@ const EventsExample: FC = () => {
     )
 }
 
-export default EventsExample
+export default EventsPage
