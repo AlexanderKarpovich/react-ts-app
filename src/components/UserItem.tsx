@@ -8,7 +8,7 @@ interface UserItemProps {
 
 const UserItem: FC<UserItemProps> = ({user}) => {
   return (
-    <Card variant={CardVariant.outlined} width='30%'>
+    <Card variant={CardVariant.outlined} width='200px' height='200px'>
         <div style={{padding: 15, margin: 5}}>
           {user.id}. {user.name} проживает в городе {user.address.city} на улице {user.address.street}.
         </div>
